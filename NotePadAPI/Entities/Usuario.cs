@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace NotePadAPI.Entities
 {
@@ -11,9 +12,12 @@ namespace NotePadAPI.Entities
 	public class Usuario
 	{
 		[Key]
-		public int IdUsuario { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IdUsuario { get; set; }
 		public string NomeUsuario { get; set; }
 		public string SenhaUsuario { get; set; }
+		public string Email { get; set; }
+		public bool Ativo { get; set; }
 	}
 }
 
